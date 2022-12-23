@@ -1,0 +1,35 @@
+.container-div {
+    display             : flex;
+    background-image    : linear-gradient( 45deg, #98c1d9, #3d5a80 50% , #e0fbfc );
+    align-items         : center;
+    justify-content     : center;
+    height              : 100vh;
+
+}
+
+.main-form {
+    background-color    : #98c1d9;
+    padding             : 10px;
+    height              : max-content;
+    width               : 380px;
+    border-radius       : 30px 0 30px 0;
+    padding             : 25px;
+}
+
+.form-container {
+    text-align          : center;
+    height              : 100%;
+    width               : 100%;
+    background-color    : #e0fbfc;
+    border-radius       : 10px;
+    padding             : 20px;
+}
+.heading {
+    font-weight         : bold;
+}
+
+.link-form {
+    text-decoration     : none;
+    font-size           : 1.1rem;
+    margin-top          : 20px;
+}
