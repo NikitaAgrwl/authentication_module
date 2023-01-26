@@ -14,18 +14,10 @@ const createTokens = (user) => {
     return accessToken;
 }
 
-const verifyTokens = (req, res, next) => {
-    if (!req.headers.authorization) {
-        return res.status(401).send("Unauthorized request");
-    }
-    const token = req.headers["authorization"].split(" ")[1];
-    if (!token) {
-        return res.status(401).send("Access denied. No token provided.");
-    }
+const verifyTokens = (token) => {
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded.user;
-        next();
+        const decoded = verify(token, process.env.SECRET_KEY);
+        return decoded;
     } catch (err) {
         res.status(400).send("Invalid token.");
     }
@@ -33,16 +25,3 @@ const verifyTokens = (req, res, next) => {
 
 
 module.exports = { createTokens, verifyTokens };
-// const verifyTokens = (tokens) =>{
-//     const decoded = verify(tokens,process.env.SECRET_KEY,function(err,decoded) {
-//         if(err)
-//         {
-//             console.log('Error at JWT:\n',err)
-//             return err;
-//         }
-
-//         return decoded
-//     });
-
-//     return decoded;
-// }

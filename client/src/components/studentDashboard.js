@@ -20,7 +20,8 @@ function StudentDashboard() {
         setEmail(initialData.token.email)
     }
 
-    async function handleForm() {
+    async function handleForm(event) {
+        event.preventDefault();
         let payload = {
             name    : name,
             email   : email,

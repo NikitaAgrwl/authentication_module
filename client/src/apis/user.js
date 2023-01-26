@@ -40,8 +40,9 @@ export const auth = async (data) => {
 }
 
 export const update = async (data) => {
+    console.log("frontend api", data)
     try {
-        const response = await axios.post('http://localhost:5000/api/user/update', data);
+        const response = await axios.put('http://localhost:5000/api/user/update', data);
 
         if (response.status === 201) {
             return { reply: 'success'}
